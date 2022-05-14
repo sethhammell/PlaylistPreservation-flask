@@ -1,1 +1,4 @@
 /venv
+/playlist/data.json
+/playlist/TodaysLogs/
+/playlist/__pycache__/
