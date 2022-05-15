@@ -5,7 +5,7 @@ from .Playlist import Playlist
 
 
 def populatePlaylist(url):
-    playlist = Playlist("Test", url)
+    playlist = Playlist(url, url)
     return playlist
 
 
