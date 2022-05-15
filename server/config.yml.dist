@@ -1,0 +1,6 @@
+postgres_credientials:
+  host: ~
+  port: ~
+  database: ~
+  user: ~
+  password: ~
