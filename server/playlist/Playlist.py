@@ -182,7 +182,7 @@ class Playlist(object):
         blockedCountryUrls = list(dict.fromkeys(blockedCountryUrls))
 
         # If uncommented, printBlockedVideos and scrapePrivatedOrRemovedSongs will only be printed on screen, not emailed
-        printBlockedVideos(blockedCountryVideos, blockedCountryUrls, self.name)
+        # printBlockedVideos(blockedCountryVideos, blockedCountryUrls, self.name)
 
         # Takes at least 10 minutes
         # privatedOrRemovedUrls = [x for x in unplayableUrls if x not in blockedCountryUrls]
