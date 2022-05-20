@@ -1,18 +1,14 @@
-# from FindRemovedSongs import findRemovedSongs
-# from FirebaseContext import postPlaylistsToFirebase, readPastPlaylistsFromFirebase
-# from EmailResults import emailResults, sendEmail
+from .FindRemovedSongs import findRemovedSongs
 from .Playlist import Playlist
+from .PostgresContext import postPlaylist, getPlaylist
+
+urlPrefix = 'https://www.youtube.com/playlist?list='
 
 
 def populatePlaylist(url):
-    playlist = Playlist(url, url)
-    return playlist
-
-
-# postPlaylistsToFirebase(playlists_current)
-# playlists_past = readPastPlaylistsFromFirebase()
-
-# removed_songs = findRemovedSongs(playlists_past, playlists_current)
-
-# if (sendEmail(removed_songs)):
-#     emailResults(removed_songs)
+    playlist = Playlist(url, urlPrefix + url)
+    postPlaylist(url, playlist.videos)
+    playlist_past = getPlaylist(url)
+    playlist_current = playlist.videos
+    removed_songs_playlist = findRemovedSongs(playlist_past, playlist_current)
+    return removed_songs_playlist

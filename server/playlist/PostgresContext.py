@@ -1,10 +1,9 @@
 from datetime import date
-import json
 from sqlalchemy import *
-from sqlalchemy.sql import select
 from pathlib import Path
-import yaml
 from datetime import datetime
+import yaml
+import json
 
 path = Path("config.yml")
 
@@ -23,18 +22,10 @@ engine = create_engine(connstr)
 connection = engine.connect()
 metadata = MetaData()
 
-# playlists = Table("playlists", metadata,
-#                   Column('url', Text, primary_key=True),
-#                   Column('videos', json, nullable=False),
-#                   Column('createdAt', date, nullable=False)
-#                   )
-
 playlists = Table("playlists",
                   metadata,
                   autoload=True,
                   autoload_with=engine)
-
-# metadata.create_all(playlists)
 
 
 def postPlaylist(url, videos):
@@ -44,7 +35,10 @@ def postPlaylist(url, videos):
 
 
 def getPlaylist(url):
-    stmt = select([playlists]).where(playlists.columns.url == url)
-    result = connection.execute(stmt)
-    for row in result:
-        print(row)
+    subquery = select(func.min(playlists.columns.createdAt)
+                      ).where(playlists.columns.url == url)
+    stmt = select([playlists]).where(and_(playlists.columns.url == url,
+                                          playlists.columns.createdAt ==
+                                          subquery.scalar_subquery()))
+    result = connection.execute(stmt).first()
+    return json.loads(result[0])
