@@ -1,6 +1,12 @@
 # PlaylistPreservation-flask
 
-## Available Scripts
+## Server Scripts
+
+In the server directory, you can run:
+
+### `python server.py`
+
+## Client Scripts
 
 In the client directory, you can run:
 
