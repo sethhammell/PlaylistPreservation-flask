@@ -1,0 +1,25 @@
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-header {
+  width: 50rem;
+  height: 5rem;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: "Roboto"
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.url {
+  margin-right: 20px;
+}
