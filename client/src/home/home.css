@@ -4,8 +4,8 @@
 }
 
 .welcome-header {
-  width: 50rem;
-  height: 5rem;
+  width: 45rem;
+  height: 4.5rem;
   margin-top: 5px;
   margin-bottom: 25px;
   text-align: center;
@@ -20,6 +20,27 @@
   margin-top: 20px;
 }
 
+.url-field {
+  width: 39rem;
+}
+
 .url {
   margin-right: 20px;
+}
+
+.home-table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.home-table {
+  width: 60%;
+}
+
+.table-header {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: large;
 }
