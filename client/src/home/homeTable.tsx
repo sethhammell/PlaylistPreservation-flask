@@ -6,9 +6,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Toolbar from "@mui/material/Toolbar";
 import EmptyTableMessage from "../components/emptyTableMessage/emptyTableMessage";
 import "./home.css";
-import { Toolbar } from "@mui/material";
 
 interface HomeTableProps {
   videos: [string, string][];
@@ -23,7 +23,7 @@ class HomeTable extends React.Component<HomeTableProps, HomeTableState> {
 
   render() {
     const videoHeaders: string[] = ["Name", "Url"];
-    const videoHeaderClasses: string[] = ["", ""];
+    const videoHeaderClasses: string[] = ["name", ""];
 
     const emptyTable = !this.props.videos.length;
     const emptyTableMessage = "No Removed Videos";

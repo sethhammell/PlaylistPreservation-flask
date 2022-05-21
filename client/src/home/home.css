@@ -38,6 +38,10 @@
   width: 60%;
 }
 
+.name {
+  width: 40%;
+}
+
 .table-header {
   display: flex;
   justify-content: center;
