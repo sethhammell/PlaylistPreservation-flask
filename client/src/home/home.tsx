@@ -1,14 +1,24 @@
-import { Button, Card, TextField } from "@mui/material";
+import {
+  Button,
+  Card,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+} from "@mui/material";
 import React, { useState } from "react";
+import { SearchType } from "../types/searchType";
 import "./home.css";
 import HomeTable from "./homeTable";
 
 function Home() {
   const api = "/api/playlists/";
   const searchString = "list=";
+
   const [url, setUrl] = useState("");
   const [showTable, setShowTable] = useState(false);
   const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState(SearchType.PLAYLIST);
 
   function fetchRemovedVideos() {
     const index = url.indexOf(searchString) + searchString.length;
@@ -27,6 +37,10 @@ function Home() {
 
   function updateUrl(e: React.ChangeEvent<HTMLInputElement>) {
     setUrl(e.target.value);
+  }
+
+  function updateSearch(event: SelectChangeEvent) {
+    setSearch(Number(event.target.value) as SearchType);
   }
 
   const table = () => {
@@ -54,6 +68,16 @@ function Home() {
             autoFocus
             label="Playlist URL"
           />
+        </div>
+        <div className="select-container">
+          <Select
+            className="select"
+            value={search.toString()}
+            onChange={updateSearch}
+          >
+            <MenuItem value={SearchType.PLAYLIST}>Playlist</MenuItem>
+            <MenuItem value={SearchType.VIDEO}>Video</MenuItem>
+          </Select>
         </div>
         <Button variant="contained" onClick={fetchRemovedVideos}>
           Find Removed Videos

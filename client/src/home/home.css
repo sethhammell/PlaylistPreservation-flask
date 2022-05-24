@@ -42,6 +42,14 @@
   width: 40%;
 }
 
+.select-container {
+  margin-right: 10px;
+}
+
+.select {
+  width: 100px;
+}
+
 .table-header {
   display: flex;
   justify-content: center;
