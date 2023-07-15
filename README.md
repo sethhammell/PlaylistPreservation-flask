@@ -1,4 +1,5 @@
 # PlaylistPreservation-flask
+React Flask app that determines removed videos from a YouTube playlist
 
 ## Server Scripts
 
